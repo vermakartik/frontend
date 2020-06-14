@@ -19,8 +19,8 @@ const useTabStyles = makeStyles(t => ({
             color: `${t.palette.primary.light}`
         },
         [t.breakpoints.down('sm')]: {
-            padding: "1rem 8px",
-            fontSize: "13px"
+            padding: "1rem 10px",
+            fontSize: "16px"
         }
     },
     current: {

@@ -5,11 +5,6 @@ import { ProjectsInfo } from './ProjectsInfo'
 import { Title } from 'Components/Title'
 
 const useResumeStyles = makeStyles(t => ({
-    container: {
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "center"
-    },
     title: {
         textAlign: "center",
         padding: "2rem 0rem",
@@ -20,19 +15,16 @@ const useResumeStyles = makeStyles(t => ({
             fontSize: "32px"
         }
     },
-    pContainers: {
-        display: "flex",
-        justifyContent: "center",
-        flexWrap: "wrap"
+    itemContainer: {
+        padding: "1rem"
     }
 }))
 
 const useNProjectStyles = makeStyles(t => ({
     container: {
-        margin: "1rem",
         overflow: "hidden",
         borderRadius: "8px",
-        width: "420px",
+        width: "100%",
         paddingBottom: "1rem",
         border: `1px solid ${t.palette.grey[500]}00`,
         transition: "background 0.2s, border 0.2s",
@@ -41,16 +33,7 @@ const useNProjectStyles = makeStyles(t => ({
             background: `${t.palette.grey[500]}0f`,
             border: `1px solid ${t.palette.grey[500]}4f`,
         },
-        position: "relative",
-        [t.breakpoints.down('lg')]: {
-            width: "360px",
-        },
-        [t.breakpoints.down('md')]: {
-            width: "320px",
-        },
-        [t.breakpoints.down('sm')]: {
-            width: "280px",
-        }
+        position: "relative"
     },
     img: {
         height: '228px',
@@ -67,7 +50,7 @@ const useNProjectStyles = makeStyles(t => ({
         fontWeight: "bold"
     },
     desc: {
-        fontSize: "10px",
+        fontSize: "11px",
         color: t.palette.grey[500],
         height: "3rem",
         overflow: "hidden",
@@ -171,10 +154,16 @@ export const Project = () => {
     return (
         <>         
             <Title title="Our Projects"/>
-            <div className={CreateClassList([c.pContainers])}>
-                {
-                    ProjectsInfo.map((item, index) => <NProject key={index} config={item} />)   
-                }
+            <div className={CreateClassList([sText().container])}>
+                <Grid container>
+                    {
+                        ProjectsInfo.map((item, index) => (
+                            <Grid item xs={12} md={4} className={c.itemContainer}> 
+                                <NProject key={index} config={item} />
+                            </Grid>
+                        ))   
+                    }
+                </Grid>
             </div>
         </>
     )
