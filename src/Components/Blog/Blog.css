@@ -1,0 +1,80 @@
+.article-source img {
+    display: block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    object-fit: contain;
+}
+
+.article-source a {
+    text-decoration: none;
+    color: #a7d0f2;
+    font-weight: 700;
+}
+
+.article-source a:hover {
+    color: #c1f7f4;
+}
+
+.article-source blockquote {
+    border-radius: 1px;
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid #ffffff1f;
+    width: 100%;
+    font-size: 12px;
+    background-color: #0000002f;
+}
+
+.article-source blockquote > p {
+    padding: 0rem 1rem;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .article-source img {
+        max-height: 256px;
+    }
+
+    .article-source pre { 
+        border-radius: 0px;
+        font-size: 12px;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .article-source img {
+        max-height: 320px;
+    }
+
+    .article-source pre { 
+        border-radius: 1px;
+        font-size: 12px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .article-source img {
+        max-height: 420px;
+    }
+
+    .article-source pre { 
+        border-radius: 2px;
+        font-size: 12px;
+    }
+}
+
+.article-source pre::-webkit-scrollbar {
+    display: none;
+}
+
+.article-source > p > code {
+    background-color: #0000002f;
+    padding: 2px 4px;
+    border-radius: 2px;
+}
