@@ -15,7 +15,7 @@ const useTitleStyles = makeStyles(t => ({
         textAlign: "center",
         display: "block",
         textDecoration: "none",
-        zIndex: "1000",
+        zIndex: "2",
     },
     container: {
         marginBottom: '1rem',

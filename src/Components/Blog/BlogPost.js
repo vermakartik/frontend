@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Grid, makeStyles, colors, Typography } from '@material-ui/core'
 import { useParams } from 'react-router-dom'
 import { useFetch } from './useFetchBlogs'
@@ -8,6 +8,7 @@ import './Blog.css'
 import CodeBlock from './CodeBlock'
 import { PostLoader } from 'Components/Loader/PostLoader'
 import { SimilarBlogs } from './RecentSimilarBlogs'
+import Readline from 'readline-js'
 
 const useText = makeStyles((t) => ({
 
@@ -53,23 +54,35 @@ const RenderedBlog = ({config}) => {
     console.log(config)
     const c = useText()
 
+
+    useEffect(() => {
+        let readline = new Readline({
+            height: '3px',
+            color: "#5e92f3",
+            target: "blog-target"
+        })
+        return () => {
+            readline.destroy();
+        }
+    })
+
     return (
-        <Grid item xs={12}>
-            <Grid container>
-                <Grid item xs={12} className={c.titleContainer}>
-                    <Typography variant="h3" className={c.title}>{config.title}</Typography>
-                    <Typography variant="subtitle1" className={c.name}>{config.author} </Typography>
-                    <strong className={c.seperator}> &bull; </strong>
-                    <Typography variant="subtitle2" className={c.date}>{ToDateFormat(parseInt(config.publishDate))}</Typography>
-                </Grid>
-                <Grid id="blog-target" className={CreateClassList(['article-source', c.text])} item xs={12}>
+        <Grid container>
+            <Grid item xs={12} className={c.titleContainer}>
+                <Typography variant="h3" className={c.title}>{config.title}</Typography>
+                <Typography variant="subtitle1" className={c.name}>{config.author} </Typography>
+                <strong className={c.seperator}> &bull; </strong>
+                <Typography variant="subtitle2" className={c.date}>{ToDateFormat(parseInt(config.publishDate))}</Typography>
+            </Grid>
+            <Grid item xs={12}>
+                <div id="blog-target" className={CreateClassList(['article-source', c.text])}>
                     <ReactMarkdown
                         source={config.text}
                         renderers={{
                             code: CodeBlock
                         }}
                     />
-                </Grid>
+                </div>
             </Grid>
         </Grid>
     )
@@ -96,8 +109,8 @@ export const BlogPost = () => {
     }
 
     return (
-        <Grid container className={CreateClassList([sText().container])}>
+        <div className={CreateClassList([sText().container])}>
             {ToRender}
-        </Grid>
+        </div>
     )
 } 

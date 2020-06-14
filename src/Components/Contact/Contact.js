@@ -29,31 +29,25 @@ export const Contact = () => {
 
     return (
         <>
-        <Grid container>
-            <Grid item xs={12}>
-                <Title title="Contact Us" />
-            </Grid>
-            <Grid item xs={12}>
-                <div className={CreateClassList([sText().container])}>
-                    <Typography variant="subtitle1" className={c.contactDesc}>
-                        Our works include:
-                        <ul>
-                            <li>Freelancing for Web, Android</li>
-                            <li>3D Modelling</li>
-                            <li>Graphics Desigining, Logo Designing</li>
-                            <li>Game Development</li>
-                            <li>Video Editing</li>
-                        </ul>
-                    </Typography>
-                    <Typography variant="subtitle1" className={c.cDescCenter}>
-                        You can contact us for any of the above mentioned on 
-                    </Typography>
-                    <Typography className={c.contactEmail} variant="subtitle2" >
-                        kartar.ytb@gmail.com
-                    </Typography>
-                </div>
-            </Grid>
-        </Grid>
+        <Title title="Contact Us" />
+        <div className={CreateClassList([sText().container])}>
+            <Typography variant="subtitle1" className={c.contactDesc}>
+                Our works include:
+                <ul>
+                    <li>Freelancing for Web, Android</li>
+                    <li>3D Modelling</li>
+                    <li>Graphics Desigining, Logo Designing</li>
+                    <li>Game Development</li>
+                    <li>Video Editing</li>
+                </ul>
+            </Typography>
+            <Typography variant="subtitle1" className={c.cDescCenter}>
+                You can contact us for any of the above mentioned on 
+            </Typography>
+            <Typography className={c.contactEmail} variant="subtitle2" >
+                kartar.ytb@gmail.com
+            </Typography>
+        </div>
         </>
     )
 }

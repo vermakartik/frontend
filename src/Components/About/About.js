@@ -31,13 +31,11 @@ export const About = () => {
     return (
         <>
             <Title title="About Us"/>
-            <Grid container className={CreateClassList([sText().container])}>
-                <Grid item xs={12}>
+            <div className={CreateClassList([sText().container])}>
                     <Typography variant='body1' className={CreateClassList([c.desc])}>
                         Talex Studios is aimed at developing next generation most innovative solutions. It is founded in December 2019. 
-                    </Typography>               
-                </Grid>
-            </Grid>
+                    </Typography>
+            </div>
         </>
     )
 }

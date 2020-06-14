@@ -10,15 +10,17 @@ import { BlogLoader } from 'Components/Loader/BlogLoader'
 const BlogPosts = ({blogDetails}) => {
 
     return (
-        <Grid container className={sText().container}>
-            {
-                blogDetails.filter((item) => item.isPublished == true).map((item, index) => (
-                    <Grid item xs={12} sm={6} md={4}>
-                        <BlogLink config={item}/>
-                    </Grid>
-                ))
-            }
-        </Grid>
+        <div className={sText().container}>
+            <Grid container>
+                {
+                    blogDetails.filter((item) => item.isPublished == true).map((item, index) => (
+                        <Grid item xs={12} sm={6} md={4}>
+                            <BlogLink config={item}/>
+                        </Grid>
+                    ))
+                }
+            </Grid>
+        </div>
     )
 
 }

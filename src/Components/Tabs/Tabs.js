@@ -53,7 +53,7 @@ const useTabsContainer = makeStyles(t => ({
         top: "0",
         background: `${t.palette.grey[800]}`,
         marginBottom: "1rem",
-        zIndex: "1000",
+        zIndex: "2",
         [t.breakpoints.down('md')]: {
             marginBottom: "2rem",
         },
