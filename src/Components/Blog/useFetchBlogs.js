@@ -7,7 +7,7 @@ export const useFetch = (urlLink) => {
     const [data, setData] = useState(null)
     const [error, setError] = useState(null)
 
-    console.log(urlLink)
+    // console.log(urlLink)
 
     const beginFetch = async () => {
 

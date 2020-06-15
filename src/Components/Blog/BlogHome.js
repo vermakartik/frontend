@@ -35,7 +35,7 @@ export const BlogHome = () => {
     if(loading == true) {
         ToRender = (<BlogLoader />)
     } else if(data != null) {
-        console.log(data)
+        // console.log(data)
         ToRender = 
         (
             <>

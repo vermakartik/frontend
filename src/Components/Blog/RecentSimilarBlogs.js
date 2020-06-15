@@ -45,14 +45,14 @@ const FilteredPosts = ({truth, data}) => {
     const c = useFilterStyles()
 
     let items = []
-    console.log(data)
+    // console.log(data)
     data.map((item, index) => {
 
         if(item.title == truth.title) {
             items.push({id: index, c: 0})
         } else {
             const i = MatchTags(truth.type, item.type)
-            console.log(i)
+            // console.log(i)
             items.push({id: index, c: i})
         }
     })
@@ -64,7 +64,7 @@ const FilteredPosts = ({truth, data}) => {
 
     if(cItems.length > 0) {
         ToRender = cItems.slice(0, 6).map((item, index) => {
-            console.log(item)
+            // console.log(item)
             return (
                 <Grid item xs={12} md={4}>
                     <BlogLink config={data[item.id]} match='/blog' />
@@ -73,7 +73,7 @@ const FilteredPosts = ({truth, data}) => {
         })
     } else {
         ToRender = data.slice(0, 6).filter(item => item.title != truth.title).map((item, index) => {
-            console.log(item)
+            // console.log(item)
             return (
                 <Grid item xs={12} md={4}>
                     <BlogLink config={item} match='/blog' />
@@ -106,7 +106,7 @@ export const SimilarBlogs = ({truth}) => {
     if(loading == true) {
         ToRender = <BlogLoader />
     } else if(data != null) {
-        console.log(data)
+        // console.log(data)
         ToRender = <FilteredPosts truth={truth} data={data.hits.filter(i => i.isPublished == true)} />
     } else {
         ToRender = <div>Error</div>

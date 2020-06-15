@@ -114,7 +114,7 @@ const Chip = ({title}) => {
 const NProject = ({config}) => {
 
     const c = useNProjectStyles()
-    console.log(config)
+    // console.log(config)
     return  (
         <div className={c.container}>
             <img src={config.image} className={c.img} />
@@ -125,7 +125,7 @@ const NProject = ({config}) => {
                     {
                         config.tags.split(",").map((i, index) => {
                             const w = i;
-                            console.log(w);
+                            // console.log(w);
                             return <Chip title={i.trim(" ")}/>
                         })
                     }

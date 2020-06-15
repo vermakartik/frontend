@@ -55,7 +55,7 @@ const useNavLinkCustomStyle = makeStyles((theme) => ({
 
 const NavLinkCustom = ({to, text, images}) => {
 
-    console.log(images)
+    // console.log(images)
     const c = useNavLinkCustomStyle()
 
     const [isHover, setHover] = useState(0)
@@ -115,7 +115,7 @@ const useStyles = makeStyles((theme) => ({
 export const Navigation = () => {
 
     const c = useStyles()
-    console.log(navigationItems)
+    // console.log(navigationItems)
     
     return (
         <Grid container>

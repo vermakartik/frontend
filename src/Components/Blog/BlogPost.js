@@ -51,7 +51,7 @@ const useText = makeStyles((t) => ({
 
 const RenderedBlog = ({config}) => {
     
-    console.log(config)
+    // console.log(config)
     const c = useText()
 
 

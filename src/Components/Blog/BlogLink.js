@@ -68,10 +68,10 @@ export const BlogLink = withRouter(({match, config}) => {
 
     const c = useStyles()
 
-    console.log(config)
+    // console.log(config)
     const link = ToSlug(config.title)
-    console.log(link)
-    console.log(match.url)
+    // console.log(link)
+    // console.log(match.url)
     return (
 
         <Link to={`/blog/${link}`} replace={true} className={c.container}>

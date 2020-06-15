@@ -76,7 +76,7 @@ const App = () => {
     secondary: amber 
   })
 
-  console.log(theme)
+  // console.log(theme)
 
   return (
       <ThemeProvider theme={theme} >
