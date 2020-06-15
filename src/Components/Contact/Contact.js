@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Grid, Typography, makeStyles } from '@material-ui/core'
 import { Title } from 'Components/Title'
 import { CreateClassList, sText } from 'CommonConst'
@@ -26,6 +26,10 @@ const useContactStyles = makeStyles((t) => ({
 export const Contact = () => {
 
     const c = useContactStyles()
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     return (
         <>

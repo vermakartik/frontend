@@ -62,7 +62,7 @@ export const BlogLoader = () => {
     const c = useContainerStyles()
 
     return (
-        <Grid container className={CreateClassList([sText().container, c.container])}>
+        <Grid container className={CreateClassList([c.container])}>
             <Grid item xs={12} sm={4}><Item /></Grid>
             <Grid item xs={12} sm={4}><Item /></Grid>
             <Grid item xs={12} sm={4}><Item /></Grid>

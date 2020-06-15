@@ -57,7 +57,7 @@ const RenderedBlog = ({config}) => {
 
     useEffect(() => {
         let readline = new Readline({
-            height: '3px',
+            height: '2px',
             color: "#5e92f3",
             target: "blog-target"
         })
@@ -93,6 +93,10 @@ export const BlogPost = () => {
 
     const {id} = useParams()
     const {data, loading, error} = useFetch(ConstructBlogPath(['posts', id]))
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     let ToRender = null
     if(loading) {

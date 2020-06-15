@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useFetch } from './useFetchBlogs'
 import { ConstructBlogPath, sText } from 'CommonConst'
 import { Loading } from 'Components/Loader/Loading'
@@ -10,7 +10,6 @@ import { BlogLoader } from 'Components/Loader/BlogLoader'
 const BlogPosts = ({blogDetails}) => {
 
     return (
-        <div className={sText().container}>
             <Grid container>
                 {
                     blogDetails.filter((item) => item.isPublished == true).map((item, index) => (
@@ -20,7 +19,6 @@ const BlogPosts = ({blogDetails}) => {
                     ))
                 }
             </Grid>
-        </div>
     )
 
 }
@@ -29,9 +27,13 @@ export const BlogHome = () => {
 
     const { loading, data, error } = React.useContext(PostsContainer.Context)
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
+
     let ToRender = null
     if(loading == true) {
-        ToRender = <BlogLoader />
+        ToRender = (<BlogLoader />)
     } else if(data != null) {
         console.log(data)
         ToRender = 
@@ -45,8 +47,8 @@ export const BlogHome = () => {
     }
 
     return (
-        <>
+        <div className={sText().container}>
             {ToRender}
-        </>
+        </div>
     )
 } 

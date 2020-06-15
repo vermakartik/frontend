@@ -119,15 +119,6 @@ export const ProjectsInfo = [
         liveLink: "",
     },
     {
-        name: "HillShare", 
-        image: ProjectImages.HillShareImage,
-        tags: "Android, Firebase, Java, XML",
-        description: "It allows users to share their personal vehicles saving fuel and making transport more economical. Users share in app if they are travelling somewhere and other users can join in to share a ride.",
-        projectLink: "https://github.com/vermakartik/RiderApp",
-        isLive: false,
-        liveLink: "",
-    },
-    {
         name: "Digit Recognition", 
         image: ProjectImages.DigitRecogImage,
         tags: "Python, Keras, CNNs, Android",

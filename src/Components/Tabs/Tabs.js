@@ -42,7 +42,7 @@ const Tab = withRouter(({match, link, text}) => {
 const URLS = [
     {link: "/blog", text: 'Blogs'},
     {link: "/projects", text: 'Projects'},
-    {link: "/resume", text: 'Resume'},
+    {link: "/resume", text: 'Domain'},
     {link: "/about", text: 'About'},
     {link: "/contact", text: 'Contact'}
 ]

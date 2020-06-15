@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Grid, makeStyles, Typography, Link } from '@material-ui/core'
 import { FONT_SECONDARY, CreateClassList, sText } from 'CommonConst'
 import { ProjectsInfo } from './ProjectsInfo'
@@ -150,6 +150,10 @@ const NProject = ({config}) => {
 export const Project = () => {
 
     const c = useResumeStyles()
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     return (
         <>         

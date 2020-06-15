@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { makeStyles, Grid, Typography } from '@material-ui/core'
 import { results } from './ResumeImages'
 import { CreateClassList, sText, FONT_SECONDARY } from 'CommonConst'
@@ -30,7 +30,7 @@ const useImageStyles = makeStyles(t => ({
         borderRadius: "80px",
         display: "inline-block",
         margin: "1rem",
-        background: `${t.palette.primary.light}0f`,
+        background: `${t.palette.grey[300]}1f`,
         [t.breakpoints.down('lg')]: {
             width: "156px",
             height: "156px",
@@ -40,7 +40,7 @@ const useImageStyles = makeStyles(t => ({
             height: "128px",
         },
         "&:hover": {
-            background: `${t.palette.grey[50]}1f`,
+            background: `${t.palette.grey[300]}2f`,
         }
     },
     iContainer: {
@@ -91,6 +91,10 @@ const useResumeStyles = makeStyles(t => ({
 export const Resume = () => {
 
     const c = useResumeStyles()
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     return (
         <>           
