@@ -8,40 +8,40 @@ const useStyles = makeStyles(t => ({
         position: "relative",
         textDecoration: "none",
         display: 'block', 
-        borderRadius: "2px",
-        border: `1px solid ${t.palette.primary.light}1f`,
+        borderRadius: "24px",
         margin: "8px",
         padding: "16px",
         height: "196px",
         color: t.palette.text.primary,
-        background: `${t.palette.primary.light}06`,
+        background: `${t.palette.primary.light}16`,
         transition: "background 0.2s",
         "&:hover": {
-            background: `${t.palette.primary.main}1f`,
+            background: `${t.palette.primary.main}3f`,
         },
         [t.breakpoints.down('md')]: {
             height: "172px"
         }
     },
     title: {
-        fontSize: "1.3rem",
+        fontSize: "1.2rem",
         overflow: "hidden",
         textOverflow: "ellipsis",
         display: "inline-block",
         color: `${t.palette.grey[200]}bf`,
-        fontWeight: "bold",
+        fontWeight: "700",
         [t.breakpoints.down('md')]: {
-            fontSize: "1rem"
+            fontSize: "1.2rem"
         },
         [t.breakpoints.down('sm')]: {
-            fontSize: "0.9rem"
+            fontSize: "1.1rem"
         }
     },
     chip: {
-        background: `${t.palette.grey[100]}0f`,
+        background: `${t.palette.grey[100]}1f`,
         padding: "1px 6px",
         fontSize: "10px",
-        borderRadius: "16px",
+        margin: "1px",
+        borderRadius: "6px",
         color: t.palette.grey[500]
     },
 
@@ -68,10 +68,8 @@ export const BlogLink = withRouter(({match, config}) => {
 
     const c = useStyles()
 
-    // console.log(config)
     const link = ToSlug(config.title)
-    // console.log(link)
-    // console.log(match.url)
+
     return (
 
         <Link to={`/blog/${link}`} replace={true} className={c.container}>

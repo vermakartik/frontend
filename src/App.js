@@ -69,14 +69,13 @@ const App = () => {
   const theme = MakeTheme({
     type: "dark",
     primary: {
-      light: "#5e92f3",
-      main: "#1565c0", 
-      dark: "#003c8f"
+      light: "#eb8a8a",
+      main: "#d35f5f", 
+      dark: "#6e2e2e"
     },
     secondary: amber 
   })
-
-  // console.log(theme)
+  console.log(theme)
 
   return (
       <ThemeProvider theme={theme} >

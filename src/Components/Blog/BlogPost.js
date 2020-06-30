@@ -17,10 +17,11 @@ const useText = makeStyles((t) => ({
         padding: "8px"
     },
     title: {
+        fontSize: "2rem",
         fontFamily: FONT_SECONDARY,
         color: t.palette.primary.light,
         [t.breakpoints.down('md')]: {
-            fontSize: "28px"
+            fontSize: "1.5rem"
         }
     },
     name: {
@@ -36,9 +37,9 @@ const useText = makeStyles((t) => ({
         fontWeight: "bold"
     },
     titleContainer: {
-        background: `${t.palette.grey[900]}6f`,
-        borderRadius: "2px",
-        padding: "2rem",
+        // borderRadius: "2px",
+        borderBottom: `1px solid ${t.palette.primary.light}6f`,
+        padding: "2rem 0.2rem 0.2rem 0.2rem",
         [t.breakpoints.down('md')]: {
             padding: "1rem",
         }
@@ -58,7 +59,7 @@ const RenderedBlog = ({config}) => {
     useEffect(() => {
         let readline = new Readline({
             height: '2px',
-            color: "#5e92f3",
+            color: "#eb8a8a",
             target: "blog-target"
         })
         return () => {
@@ -67,9 +68,9 @@ const RenderedBlog = ({config}) => {
     })
 
     return (
-        <Grid container>
+        <Grid container style={{paddingBottom: "2rem"}}>
             <Grid item xs={12} className={c.titleContainer}>
-                <Typography variant="h3" className={c.title}>{config.title}</Typography>
+                <Typography className={c.title}>{config.title}</Typography>
                 <Typography variant="subtitle1" className={c.name}>{config.author} </Typography>
                 <strong className={c.seperator}> &bull; </strong>
                 <Typography variant="subtitle2" className={c.date}>{ToDateFormat(parseInt(config.publishDate))}</Typography>

@@ -7,7 +7,7 @@ const useItemStyles = makeStyles(t => ({
     itemContainer: {
         position: "relative",
         height: "196px",
-        borderRadius: "2px",
+        borderRadius: "28px",
         margin: "1rem",
         padding: "1rem",
         background: `${t.palette.grey[800]}5f`,
@@ -15,7 +15,7 @@ const useItemStyles = makeStyles(t => ({
     },
     item_1: {
         height: "10px",
-        borderRadius: "2px",
+        borderRadius: "28px",
         background: `${t.palette.grey[300]}4f`,
         margin: "8px 0px"
     },
@@ -63,9 +63,10 @@ export const BlogLoader = () => {
 
     return (
         <Grid container className={CreateClassList([c.container])}>
-            <Grid item xs={12} sm={4}><Item /></Grid>
-            <Grid item xs={12} sm={4}><Item /></Grid>
-            <Grid item xs={12} sm={4}><Item /></Grid>
+            <Grid item xs={12} sm={6} md={4}><Item /></Grid>
+            <Grid item xs={12} sm={6} md={4}><Item /></Grid>
+            <Grid item xs={12} sm={6} md={4}><Item /></Grid>
+            <Grid item xs={12} sm={6} md={4}><Item /></Grid>
         </Grid>
     )
 }

@@ -3,6 +3,8 @@ import { PostsContainer } from './ArticlesContainer'
 import { BlogLoader } from 'Components/Loader/BlogLoader'
 import { BlogLink } from './BlogLink'
 import { Typography, makeStyles, Grid } from '@material-ui/core'
+import { BlogListFiletered } from './BlogListFiltered'
+import { FONT_SECONDARY } from 'CommonConst'
 
 const MatchTags = (truth, match) => {
     const t1 = truth.split(", ").map(i => i.trim(" ").toLowerCase())
@@ -19,7 +21,8 @@ const MatchTags = (truth, match) => {
 
 const useFilterStyles = makeStyles(t => ({
     title: {
-        fontWeight: 'bold',
+        fontFamily: FONT_SECONDARY,
+        fontWeight: '100',
         color: `${t.palette.text.secondary}`,
         paddingBottom: "1rem"
     },
@@ -28,7 +31,7 @@ const useFilterStyles = makeStyles(t => ({
         display: "flex",
         flexWrap: "wrap",
         paddingTop: "1rem",
-        borderTop: `1px solid ${t.palette.grey[600]}2f`
+        borderTop: `1px solid ${t.palette.grey[600]}7f`
     },
     noSimilarPosts: {
         fontSize: "1.5rem",
@@ -60,38 +63,23 @@ const FilteredPosts = ({truth, data}) => {
     items.sort((a, b) => a.c > b.c ? -1 : 1)
     const cItems = items.filter(i => i.c > 0.4)
 
-    let ToRender = null
-
+    let fcData = []
     if(cItems.length > 0) {
-        ToRender = cItems.slice(0, 6).map((item, index) => {
-            // console.log(item)
-            return (
-                <Grid item xs={12} md={4}>
-                    <BlogLink config={data[item.id]} match='/blog' />
-                </Grid>
-            )
+        fcData = cItems.slice(0, 6).map((item, index) => {
+            return data[item.id]
         })
     } else {
-        ToRender = data.slice(0, 6).filter(item => item.title != truth.title).map((item, index) => {
-            // console.log(item)
-            return (
-                <Grid item xs={12} md={4}>
-                    <BlogLink config={item} match='/blog' />
-                </Grid>
-            )
-        })
+        fcData = data.slice(0, 6).filter(item => item.title != truth.title)
     }
 
 
     return (
         <Grid container className={c.container}>
-            <Grid item xs={12}>
+            <Grid item style={{paddingLeft: "1rem"}} xs={12}>
                 <Typography variant="h5" className={c.title}>More Posts</Typography>
             </Grid>
             <Grid item xs={12}>
-                <Grid container>
-                        {ToRender}
-                </Grid>
+                <BlogListFiletered blogData={fcData} /> 
             </Grid>
         </Grid>
     )

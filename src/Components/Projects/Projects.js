@@ -97,7 +97,7 @@ const useChips = makeStyles(t => ({
         fontSize: "10px",
         margin: "2px",
         background: `${t.palette.primary.main}2f`,
-        borderRadius: "10px",
+        borderRadius: "6px",
         border: `1px solid ${t.palette.primary.light}2f`,
         color: `${t.palette.primary.light}`
     }
@@ -162,7 +162,7 @@ export const Project = () => {
                 <Grid container>
                     {
                         ProjectsInfo.map((item, index) => (
-                            <Grid item xs={12} md={4} className={c.itemContainer}> 
+                            <Grid item xs={12} sm={6} md={4} className={c.itemContainer}> 
                                 <NProject key={index} config={item} />
                             </Grid>
                         ))   

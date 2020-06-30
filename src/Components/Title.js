@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Typography, makeStyles } from '@material-ui/core'
+import { Typography, makeStyles, useMediaQuery, useTheme, Grid } from '@material-ui/core'
 import { FONT_SECONDARY, CreateClassList, sText } from 'CommonConst'
-import { Tabs } from './Tabs/Tabs'
+import { Tabs, TabsMobileBottom } from './Tabs/Tabs'
 
 const useTitleStyles = makeStyles(t => ({
     title: {
@@ -24,10 +24,11 @@ const useTitleStyles = makeStyles(t => ({
     }
 }))
 
-export const Title = ({title, link, nRender}) => {
+
+const TitleDesktop = ({title, link, nRender}) => {
 
     const c = useTitleStyles()
-    return (
+    return  (
         <>
             {
                 link ?
@@ -44,6 +45,42 @@ export const Title = ({title, link, nRender}) => {
                 null       
             }
         </>
-        
+    )
+}
+
+const useMobileTitleStyles = makeStyles(t => ({
+    container: {
+        position: "fixed",
+        background: "red",
+        bottom: "0px",
+        left: "0px",
+        width: "100%",
+        zIndex: "1000"
+    }
+}))
+
+export const Title = ({title, link, nRender}) => {
+
+    const theme = useTheme()
+    const matches = useMediaQuery(theme.breakpoints.up('lg'))
+
+    const c = useTitleStyles()
+    return  (
+        <>
+            {
+                link ?
+                <Link to={link} className={CreateClassList([c.titleContainer])}>
+                   <Typography className={c.title} variant="h5">{title}</Typography>
+                </Link>:
+                <div className={CreateClassList([c.titleContainer])}>
+                    <Typography className={c.title} variant="h5">{title}</Typography>
+                </div>
+            }
+            {
+                !nRender ?
+                (matches ? <Tabs /> : <TabsMobileBottom />) :
+                null       
+            }
+        </>
     )
 }

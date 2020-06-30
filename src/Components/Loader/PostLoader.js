@@ -7,22 +7,25 @@ const useItemStyles = makeStyles(t => ({
     itemContainer: {
         position: "relative",
         height: "156px",
-        borderRadius: "2px",
+        borderRadius: "28px",
         margin: "1rem",
         padding: "1rem",
         background: `${t.palette.grey[800]}5f`,
-
     },
     item_1: {
-        borderRadius: "2px",
+        boxSizing: "borderBox",
+        borderRadius: "28px",
         background: `${t.palette.grey[300]}4f`,
-        margin: "8px 0px"
+        margin: "8px 2px"
     },
     height10: {
         height: "10px",
     },
     height20: {
         height: "20px",
+    },
+    height80: {
+        height: "180px",
     },
     height50: {
         height: "50vh",
@@ -38,6 +41,11 @@ const useItemStyles = makeStyles(t => ({
         bottom: "8px",
         width: "50%",
         display: "block"
+    },
+    borderTop: {
+        borderTop: `1px solid ${t.palette.grey[500]}3f`,
+        marginTop: "1rem",
+        paddingTop: "1rem"
     }
 }))
 
@@ -55,6 +63,11 @@ const Item = () => {
                 <div className={CreateClassList(['item_animation', c.item_1, c.width50, c.height20])} />
                 <div className={CreateClassList(['item_animation', c.item_1, c.width100, c.height20])} />
             </div>
+            <Grid container className={c.borderTop}>
+                <Grid item xs={12} sm={6} md={4}> <div className={CreateClassList(['item_animation', c.item_1, c.height80])}/> </ Grid>
+                <Grid item xs={12} sm={6} md={4}> <div className={CreateClassList(['item_animation', c.item_1, c.height80])}/> </ Grid>
+                <Grid item xs={12} sm={6} md={4}> <div className={CreateClassList(['item_animation', c.item_1, c.height80])}/> </ Grid>
+            </Grid>
         </>
     )
 

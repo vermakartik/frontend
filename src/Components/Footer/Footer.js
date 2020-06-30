@@ -8,7 +8,10 @@ const useFooterStyles = makeStyles((theme) => ({
         padding: "4em",
         color: `${theme.palette.grey[600]}`,
         marginTop: "1rem",
-        fontSize: "12px"
+        fontSize: "12px", 
+        [theme.breakpoints.down('sm')]: {
+            paddingBottom: "5em",
+        }
     },
     socialContainer: {
         [theme.breakpoints.up('md')]: {

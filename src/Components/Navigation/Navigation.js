@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Grid, makeStyles, Typography } from '@material-ui/core'
 import { Link } from 'react-router-dom'
-import {CreateClassList, FONT_SECONDARY} from '../../CommonConst'
+import {CreateClassList, FONT_SECONDARY, FONT_MAIN} from '../../CommonConst'
 import {
     ImageList
 } from './NavImages'
@@ -10,13 +10,14 @@ const useNavLinkCustomStyle = makeStyles((theme) => ({
         width: "156px",
         height: "156px",
         textDecoration: "none",
-        fontFamily: FONT_SECONDARY,
+        fontFamily: FONT_MAIN,
         fontSize: "0.8rem",
         color: theme.palette.text.secondary,
-        borderRadius: '6px',
+        borderRadius: '124px',
         display: "block",
         textAlign: "center",
         margin: "1rem",
+        fontWeight: "700",
         background: `${theme.palette.primary.main}87`,
         [theme.breakpoints.down('md')]: {
             margin: "4px",
