@@ -48,7 +48,7 @@ const useItemStyles = makeStyles(t => ({
         paddingTop: "1rem"
     },
     mrem: {
-        margin: "16px",
+        margin: "8px",
     }
 }))
 
