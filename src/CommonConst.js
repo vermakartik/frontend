@@ -1,7 +1,7 @@
 import 'common.css'
 import { BASE_URL } from 'cconfig'
 import { makeStyles } from '@material-ui/core'
-export const FONT_MAIN = 'Nunito, sans-serif'
+export const FONT_MAIN = 'Archia, sans-serif'
 export const FONT_SECONDARY = 'Bungee, sans-serif' 
 
 export const CreateClassList = (a) => { return `${a.join(" ")}` }

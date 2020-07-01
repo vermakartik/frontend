@@ -1,6 +1,6 @@
 import React from 'react'
 import { CreateClassList, sText } from 'CommonConst'
-import { makeStyles, Grid } from '@material-ui/core'
+import { makeStyles, Grid, useMediaQuery, useTheme } from '@material-ui/core'
 import 'Components/Loader/BlogLoading.css'
 
 const useItemStyles = makeStyles(t => ({
@@ -25,7 +25,7 @@ const useItemStyles = makeStyles(t => ({
         height: "20px",
     },
     height80: {
-        height: "180px",
+        height: "156px",
     },
     height50: {
         height: "50vh",
@@ -46,10 +46,16 @@ const useItemStyles = makeStyles(t => ({
         borderTop: `1px solid ${t.palette.grey[500]}3f`,
         marginTop: "1rem",
         paddingTop: "1rem"
+    },
+    mrem: {
+        margin: "16px",
     }
 }))
 
 const Item = () => {
+
+    const theme = useTheme()
+    const m = useMediaQuery(theme.breakpoints.down('md'))
     const c = useItemStyles()
     return (
         <>
@@ -64,9 +70,15 @@ const Item = () => {
                 <div className={CreateClassList(['item_animation', c.item_1, c.width100, c.height20])} />
             </div>
             <Grid container className={c.borderTop}>
-                <Grid item xs={12} sm={6} md={4}> <div className={CreateClassList(['item_animation', c.item_1, c.height80])}/> </ Grid>
-                <Grid item xs={12} sm={6} md={4}> <div className={CreateClassList(['item_animation', c.item_1, c.height80])}/> </ Grid>
-                <Grid item xs={12} sm={6} md={4}> <div className={CreateClassList(['item_animation', c.item_1, c.height80])}/> </ Grid>
+                <Grid item xs={12} sm={6} md={4}> <div className={CreateClassList(['item_animation', c.mrem, c.item_1, c.height80])}/> </ Grid>
+                <Grid item xs={12} sm={6} md={4}> <div className={CreateClassList(['item_animation', c.mrem, c.item_1, c.height80])}/> </ Grid>
+                {
+                    m ? null : (
+                        <>
+                            <Grid item xs={12} sm={6} md={4}> <div className={CreateClassList(['item_animation', c.mrem, c.item_1, c.height80])}/> </ Grid>
+                        </>
+                    )
+                }
             </Grid>
         </>
     )
