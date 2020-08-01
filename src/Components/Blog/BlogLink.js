@@ -8,15 +8,16 @@ const useStyles = makeStyles(t => ({
         position: "relative",
         textDecoration: "none",
         display: 'block', 
-        borderRadius: "24px",
+        borderRadius: "4px",
         margin: "8px",
         padding: "16px",
         height: "196px",
         color: t.palette.text.primary,
-        background: `${t.palette.primary.light}16`,
+        background: `${t.palette.primary.light}06`,
         transition: "background 0.2s",
+        border: `1.2px solid ${t.palette.grey[500]}0f`,
         "&:hover": {
-            background: `${t.palette.primary.main}3f`,
+            background: `${t.palette.primary.main}1f`,
         },
         [t.breakpoints.down('md')]: {
             height: "172px"

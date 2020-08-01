@@ -8,7 +8,7 @@ import { BlogMatch } from './Components/Blog/BlogMatch';
 import { Resume } from './Components/Resume/Resume';
 import { NotFound } from './Components/NotFound/NotFound';
 import { Navigation } from './Components/Navigation/Navigation';
-import { amber, teal, yellow, deepOrange, purple } from '@material-ui/core/colors';
+import { amber, teal, yellow, deepOrange, purple, grey, red } from '@material-ui/core/colors';
 import { FONT_MAIN } from './CommonConst';
 import { Footer } from './Components/Footer/Footer';
 import { Project } from 'Components/Projects/Projects';
@@ -68,11 +68,7 @@ const App = () => {
 
   const theme = MakeTheme({
     type: "dark",
-    primary: {
-      light: "#eb8a8a",
-      main: "#d35f5f", 
-      dark: "#6e2e2e"
-    },
+    primary: yellow,
     secondary: amber 
   })
   console.log(theme)

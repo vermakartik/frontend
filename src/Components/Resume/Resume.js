@@ -28,6 +28,7 @@ const useImageStyles = makeStyles(t => ({
         width: "156px",
         height: "156px",
         borderRadius: "80px",
+        border: `1.2px solid ${t.palette.grey[500]}1f`,
         display: "inline-block",
         margin: "1rem",
         background: `${t.palette.grey[300]}1f`,

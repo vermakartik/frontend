@@ -13,12 +13,13 @@ const useNavLinkCustomStyle = makeStyles((theme) => ({
         fontFamily: FONT_MAIN,
         fontSize: "0.8rem",
         color: theme.palette.text.secondary,
-        borderRadius: '124px',
+        borderRadius: '1px',
         display: "block",
         textAlign: "center",
         margin: "1rem",
         fontWeight: "700",
-        background: `${theme.palette.primary.main}87`,
+        background: `${theme.palette.primary.main}2f`,
+        border: `1px solid ${theme.palette.primary.main}8f`,
         [theme.breakpoints.down('md')]: {
             margin: "4px",
             width: "156px",
@@ -50,7 +51,12 @@ const useNavLinkCustomStyle = makeStyles((theme) => ({
         position: "relative",
         top: "50%",
         transform: "translateY(-50%)" 
-    }
+    },
+    textApp: {
+        borderRadius: "48px",
+        fontSize: "1rem",
+        fontWeight: "100"
+    }   
     
 }))
 
@@ -106,12 +112,49 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'center',
         paddingTop: theme.spacing(4),
         paddingBottom: theme.spacing(2),
-        color: `${theme.palette.primary.light}9f`
+        color: `${theme.palette.primary.light}`
     },
     navContainer: {
         margin: "auto",
+    },
+
+    quickLinkTitle: {
+        fontFamily: FONT_MAIN,
+        fontSize: "18px",
+        textAlign: "center",
+        textTransform: "uppercase",
+        color: `${theme.palette.primary.light}bf`
     }
 }))
+
+const AppLinkItem = (name, link) => {
+    return {
+        name,
+        link
+    }
+}
+
+const AppItems = [
+    AppLinkItem("Graphy", "https://vermakartik.github.io/graphy/"),
+    AppLinkItem("Money Game", "https://www.it.iitb.ac.in/summerinternship2018/activity_src/0MO84FuysWRAqPNAPH0ctg/wi1XrHwwRTU2L41rf6fO8w/Experiment/index.jsp"),
+    AppLinkItem("Resistor Game", "https://www.it.iitb.ac.in/summerinternship2018/activity_src/0MO84FuysWRAqPNAPH0ctg/hYGN6m-wk7__e2ZP96dGiw/Experiment/index.jsp"),
+    AppLinkItem("Money Game", "https://www.it.iitb.ac.in/summerinternship2018/activity_src/0MO84FuysWRAqPNAPH0ctg/XKIEzUcb_xms26EWchVlzw/Experiment/index.jsp"),
+]
+
+const AppLinkCustom = ({to, text}) => {
+
+    const c = useNavLinkCustomStyle()
+
+    const [isHover, setHover] = useState(0)
+
+    return (
+        <a target="_blank" href={to} className={CreateClassList([c.back, c.textApp])} onMouseEnter={() => setHover(1)} onMouseLeave={() => setHover(0)}>
+            <div className={c.textInfo}>
+                <Typography variant="title">{text}</Typography>
+            </div>
+        </a>
+    )
+}
 
 export const Navigation = () => {
 
@@ -134,6 +177,21 @@ export const Navigation = () => {
                     navigationItems.map((i, index) => <NavLinkCustom key={`nav_link_${index}`} to={i.to} text={i.text} images={i.images} />)
                 }
             </Grid>
+            <Grid item xs={12}>
+                <Typography className={c.quickLinkTitle} >App Quick Links</Typography>
+            </Grid>
+            <Grid item xs={12} style={{
+                    display: 'flex',
+                    flexWrap: "wrap",
+                    justifyContent: "center",
+                    paddingBottom: "1rem",
+                    paddingTop: "1rem"
+                }}>
+                {
+                    AppItems.map((i, index) => <AppLinkCustom key={`app_link_${index}`} to={i.link} text={i.name} />)
+                }
+            </Grid>
+            
         </Grid>
     )
 } 

@@ -8,25 +8,28 @@ import { ImageList } from 'Components/Navigation/NavImages';
 
 const useTabStyles = makeStyles(t => ({
     tab: {
+        margin: "0px 4px",
         textDecoration: "none",
         display: 'inline-block',
-        padding: "1rem",
+        padding: "0.2rem 1rem",
+        background: `${t.palette.grey[900]}6f`,
         color: t.palette.text.secondary,
         fontSize: "14px",
-        fontFamily: FONT_SECONDARY,
+        fontFamily: FONT_MAIN,
         fontWeight: "100",
         textTransform: "uppercase",
         transition: "all 0.2s",
-        "&:hover": {
-            color: `${t.palette.primary.light}`
-        },
+        borderRadius: "40px",
+        border: `1.2px solid ${t.palette.grey[50]}1f`,
         [t.breakpoints.down('sm')]: {
             padding: "1rem 10px",
             fontSize: "16px"
         }
     },
     current: {
-        color: t.palette.primary.light,
+        color: t.palette.grey[800],
+        background: t.palette.primary.main,
+        fontWeight: "bold"
     }
 }))
 
@@ -35,7 +38,7 @@ const Tab = withRouter(({match, link, text}) => {
     const c = useTabStyles()
 
     return (
-        <Link to={link} replace={true} className={CreateClassList(match.url == link ? [c.tab, 'tab-selected', c.current] : [c.tab])}>
+        <Link to={link} replace={true} className={CreateClassList(match.url == link ? [c.tab, c.current] : [c.tab])}>
             {text}
         </Link>
     )
@@ -51,10 +54,9 @@ const URLS = [
 
 const useTabsContainer = makeStyles(t => ({
     container: {
-        position: "sticky",
+        // position: "sticky",
         top: "0",
-        borderBottom: `1px solid ${t.palette.grey[100]}4f`,
-        background: `${t.palette.primary.dark}`,
+        background: `#303030`,
         marginBottom: "1rem",
         zIndex: "2",
         [t.breakpoints.down('md')]: {
